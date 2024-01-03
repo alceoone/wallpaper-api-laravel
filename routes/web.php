@@ -37,9 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/aplikasi/show/{id}', [AplikasiController::class,'show'])->name('aplikasi.show');
     Route::post('/aplikasi/edit/{id}', [AplikasiController::class,'store'])->name('aplikasi.edit');
     Route::delete('/aplikasi/destroy/{id}', [AplikasiController::class,'destroy'])->name('aplikasi.destroy');
+    
     // Kategori
     Route::get('/kategori', [KategoriController::class,'index'])->name('kategori.index');
     Route::post('/kategori/tambah/store', [KategoriController::class,'store'])->name('kategori.store');
+    Route::delete('/kategori/destroy/{id}/{idApp}', [KategoriController::class,'destroy'])->name('kategori.destroy');
     // Assets
     Route::get('/assets', [KategoriAssetWallpaperController::class,'index'])->name('assets.index');
     Route::get('/assets/kategori/{id}', [KategoriAssetWallpaperController::class,'getSubcategoriesApiBlade']);
