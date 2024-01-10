@@ -40,6 +40,8 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('aplikasi/wallpaper/kategori/{id}/home/top', [AplikasiWallpaperController::class, 'getKategoriTopView']);
 
+    Route::get('aplikasi/wallpaper/kategori/{id}/home/foryou', [AplikasiWallpaperController::class, 'getKategoriForYouView']);
+
     Route::get('aplikasi/wallpaper/kategori/{id}/split', [AplikasiWallpaperController::class, 'getKategoriPageSplitView']);
 
     Route::get('aplikasi/wallpaper/kategori/{id}/get/all', [AplikasiWallpaperController::class, 'getKategoriAllView']);

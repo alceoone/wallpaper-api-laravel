@@ -219,6 +219,27 @@ class AplikasiWallpaperController extends Controller
             return $this->jsonResponse(['error' => $e->getMessage()], 401);
         }
     }
+    public function getKategoriForYouView(Request $request, $id){
+        try {
+            $assetWallpaper = AssetsWallpaper::select(
+                                "id",
+                                "kategori_id",
+                                "aplikasi_id",
+                                "tag",
+                                \DB::raw('CONCAT("'.env('APP_URL').'","/storage/", COALESCE(gambar_asset_wallpaper, "")) AS gambar_asset_wallpaper'),
+                                "view_count",
+                                "created_at",
+                                "updated_at"
+                            )->where('kategori_id', $id)
+                            ->orderBy('view_count', 'desc')
+                            ->paginate(1);
+
+            return $this->jsonResponse($assetWallpaper->items());
+        } catch (\Exception $e) {
+            return $this->jsonResponse(['error' => $e->getMessage()], 401);
+        }
+    }
+    
     public function getKategoriAllView(Request $request, $id){
         try {
             $assetWallpaper = AssetsWallpaper::select(
