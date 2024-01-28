@@ -13,7 +13,6 @@
                         {{-- <form method="post" action="{{ isset($post) ? route('posts.update', $post->id) : route('posts.store') }}" class="mt-6 space-y-6" enctype="multipart/form-data">class="mt-6 space-y-6"> --}}
                         <form method="post" action="" class="mt-6 space-y-6" enctype="multipart/form-data">
                             @csrf
-                            {{-- add @method('put') for edit mode --}}
                             @isset($post)
                                 @method('put')
                             @endisset
