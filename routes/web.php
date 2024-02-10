@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::get('/privacy-policy', function () {
     return view('pages.privacy-policy.index');
 });
+Route::get('/app-ads.txt', function () {
+    return "facebook.com, 921880824981151, DIRECT, c3e20eee3f780d68";
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
