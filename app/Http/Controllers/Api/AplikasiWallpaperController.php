@@ -121,7 +121,7 @@ class AplikasiWallpaperController extends Controller
                                 "updated_at"
                             )->where('aplikasi_id', $data->id)
                             ->orderBy('view_count', 'desc')
-                            ->paginate(1);
+                            ->paginate(6);
 
             return $this->jsonResponse($assetWallpaper->items());
         } catch (\Exception $e) {
